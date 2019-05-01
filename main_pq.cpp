@@ -1,34 +1,49 @@
+#include <cstdlib>
 #include "Heap.cpp"
 #include "PriorityQueue.cpp"
 
+/* CTRL+D end input */
 int main(int argc, char *argv[])
 {
-    int data;
-    int buff[] = {10, 16, 18, 12, 11, 13, 15, 17, 14, 19, 9};
-    Heap<int, Less<int> > hp1(buff, sizeof(buff) / sizeof(int));  /* > >·Ö¿ª·ÀÖ¹±àÒëÆ÷ÓëÓÒÒÆ²Ù×÷·û»ìÏý */
-    hp1.Push(20);
-    while (hp1.Pop(data))
+    if (argc != 2)
     {
-        cout << data << " ";
+        cout << "CMD <type>" << endl;;
+        return -1;
     }
-    cout << endl << "-----------------------------------" << endl;
 
-    PriorityQueue<int, Greater<int> > hp2;
-    hp2.Push(8);
-    hp2.Push(10);
-    hp2.Push(3);
-    hp2.Push(8);
-    hp2.Push(23);
-    hp2.Push(16);
-    hp2.Push(20);
-    hp2.Push(19);
-    hp2.Push(7);
-    hp2.Push(14);
-    while (hp2.Pop(data))
+    int type = atoi(argv[1]);
+    int data = 0;
+    
+    if (type == 0)
     {
-        cout << data << " ";
+        cout << "min heap, input data" << endl;
+        PriorityQueue<int, Less<int> > pq_less;
+        while (cin >> data)
+        {
+            pq_less.Push(data);
+        }
+
+        while (pq_less.Pop(data))
+        {
+            cout << data << " ";
+        }
     }
-    cout << endl << "-----------------------------------" << endl;
+    else
+    {
+        cout << "max heap, input data" << endl;
+        PriorityQueue<int, Greater<int> > pq_greater;
+        while (cin >> data)
+        {
+            pq_greater.Push(data);
+        }
+
+        while (pq_greater.Pop(data))
+        {
+            cout << data << " ";
+        }
+    }
+
+    cout << endl;
     return 0;
 }
 

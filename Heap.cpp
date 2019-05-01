@@ -63,7 +63,7 @@ bool Heap<T, com>::isEmpty()
 template<typename T, typename com>
 void Heap<T, com>::PercolateDown(int parent)
 {
-    int child = parent * 2 + 1;
+    size_t child = parent * 2 + 1;
 
     if (child >= m_vec.size())
     {

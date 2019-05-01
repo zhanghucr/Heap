@@ -11,6 +11,12 @@ void timeout_cb(void *cb)
 
 int main(int argc, char *argv[])
 {
+    if (argc != 4)
+    {
+        cout << "CMD <type> <delay> <arg>" << endl;;
+        return -1;
+    }
+    
     int type = atoi(argv[1]);
     int delay = atoi(argv[2]);
     int arg = atoi(argv[3]);

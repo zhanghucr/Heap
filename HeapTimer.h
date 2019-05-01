@@ -32,9 +32,9 @@ public:
     
 public:
     time_t     m_expire;  /* 超时绝对时间 */
+    int        m_type;
     int        m_delay;
     call_back  m_callback;
-    int        m_type;
     void      *m_arg;
 };
 
