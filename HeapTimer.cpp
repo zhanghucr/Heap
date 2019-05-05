@@ -29,6 +29,7 @@ void *HeapTimer::RestartTimer(TimerData& timer)
 bool HeapTimer::StopTimer(TimerData& timer)
 {
     timer.m_callback = NULL;
+	timer.m_type = TIMER_ONESHOT;
     return true;
 }
 
@@ -50,7 +51,7 @@ void HeapTimer::Tick()
             break;
         }
         
-        if (timer.m_callback != NULL )
+        if (timer.m_callback != NULL)
         {
             timer.m_callback(timer.m_arg);
         }
