@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        cout << "CMD <type>" << endl;;
+        cout << "CMD <type>" << endl;
         return -1;
     }
 

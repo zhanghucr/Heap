@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 4)
     {
-        cout << "CMD <type> <delay> <arg>" << endl;;
+        cout << "CMD <type> <delay> <arg>" << endl;
         return -1;
     }
     
