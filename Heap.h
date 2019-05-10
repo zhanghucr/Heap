@@ -27,7 +27,7 @@ struct Greater
     }
 };
 
-template<typename T, typename com = Greater<T> >
+template<typename T, typename COM = Greater<T> >
 class Heap
 {
 public:
@@ -60,7 +60,7 @@ protected:
     
 private:
     vector<T>  m_vec;
-    com        m_com;  /* 比较函数对象 */
+    COM        m_com;  /* 比较函数对象 */
 };
 
 #endif

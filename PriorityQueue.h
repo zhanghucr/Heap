@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template<typename T, typename com = Greater<T> >
+template<typename T, typename COM = Greater<T> >
 class PriorityQueue
 {
 public:
@@ -24,7 +24,7 @@ public:
     bool isEmpty();
    
 private:
-    Heap<T, com>  m_hp;
+    Heap<T, COM>  m_hp;
 };
 
 #endif  /* __PRIORITY_QUE_H__ */

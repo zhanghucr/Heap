@@ -1,12 +1,12 @@
 #include "Heap.h"
 
-template<typename T, typename com>
-Heap<T, com>::Heap()
+template<typename T, typename COM>
+Heap<T, COM>::Heap()
 {
 }
 
-template<typename T, typename com>
-Heap<T, com>::Heap(T *a, size_t n):m_vec(a, a + n)
+template<typename T, typename COM>
+Heap<T, COM>::Heap(T *a, size_t n):m_vec(a, a + n)
 {
     for (int i = (n - 1) / 2; i >= 0; i--)  /* 对(n - 1) / 2个非叶子节点进行过滤 */
     {
@@ -14,20 +14,20 @@ Heap<T, com>::Heap(T *a, size_t n):m_vec(a, a + n)
     }
 }
 
-template<typename T, typename com>
-Heap<T, com>::~Heap()
+template<typename T, typename COM>
+Heap<T, COM>::~Heap()
 {
 }
 
-template<typename T, typename com>
-void Heap<T, com>::Push(const T& x)
+template<typename T, typename COM>
+void Heap<T, COM>::Push(const T& x)
 {
     m_vec.push_back(x);
     PercolateUp(m_vec.size() - 1);
 }
 
-template<typename T, typename com>
-bool Heap<T, com>::Pop(T& x)
+template<typename T, typename COM>
+bool Heap<T, COM>::Pop(T& x)
 {
     if (isEmpty())
     {
@@ -41,27 +41,27 @@ bool Heap<T, com>::Pop(T& x)
     return true;
 }
 
-template<typename T, typename com>
-size_t Heap<T, com>::Size()
+template<typename T, typename COM>
+size_t Heap<T, COM>::Size()
 {
     return m_vec.size();
 }
 
-template<typename T, typename com>
-T& Heap<T, com>::Top()
+template<typename T, typename COM>
+T& Heap<T, COM>::Top()
 {
     return m_vec[0];
 }
 
-template<typename T, typename com>
-bool Heap<T, com>::isEmpty()
+template<typename T, typename COM>
+bool Heap<T, COM>::isEmpty()
 {
     return m_vec.size() == 0;
 }
 
 #ifdef USE_RECURSIVE
-template<typename T, typename com>
-void Heap<T, com>::PercolateDown(int parent)
+template<typename T, typename COM>
+void Heap<T, COM>::PercolateDown(int parent)
 {
     size_t child = parent * 2 + 1;
 
@@ -84,8 +84,8 @@ void Heap<T, com>::PercolateDown(int parent)
     }
 }
 
-template<typename T, typename com>
-void Heap<T, com>::PercolateUp(int child)
+template<typename T, typename COM>
+void Heap<T, COM>::PercolateUp(int child)
 {
     //Compare com;
     int parent = (child - 1) / 2;
@@ -104,8 +104,8 @@ void Heap<T, com>::PercolateUp(int child)
 
 #else
 
-template<typename T, typename com>
-void Heap<T, com>::PercolateDown(int parent)
+template<typename T, typename COM>
+void Heap<T, COM>::PercolateDown(int parent)
 {
     int child = parent * 2 + 1;
     //此处的条件有两个：
@@ -133,8 +133,8 @@ void Heap<T, com>::PercolateDown(int parent)
     }
 }
 
-template<typename T, typename com>
-void Heap<T, com>::PercolateUp(int child)
+template<typename T, typename COM>
+void Heap<T, COM>::PercolateUp(int child)
 {
     //Compare com;
     int parent = (child - 1) / 2;
